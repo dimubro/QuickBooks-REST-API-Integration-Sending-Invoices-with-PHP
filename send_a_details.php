@@ -7,13 +7,23 @@ $apiUrl = "https://sandbox-quickbooks.api.intuit.com/v3/company/$realmId/invoice
 
 $data = [
     "CustomerRef" => ["value" => "2"], // You want to insert a customer into QuickBooks and need to get the Customer ID. The Customer Insert REST API code is also available in this repository.
-    "Line" => [
-        [
-            "DetailType" => "DescriptionOnly",
+    $line_items[] = [
+            "DetailType" => "SalesItemLineDetail",
             "Amount" => 100.00,
-            "Description" => "Custom Service - No ItemRef"
-        ]
-    ]
+            "Description" => "Item Name",
+            "SalesItemLineDetail" => [
+                "ItemRef" => [
+                    "value" => 1, //  You want to insert an item into QuickBooks from the admin panel and need to get the item ID from QuickBooks.
+                    "name" => "Item Name"
+                ],
+                "Qty" => $item->qty,
+                "UnitPrice" => round($item->price, 2),
+                "TaxCodeRef" => [
+                    "value" => "2" // You want to get tax settings from QuickBooks, and you receive the tax settings ID from the QuickBooks admin.
+                ]
+            ]
+        ];
+
 ];
 
 $ch = curl_init($apiUrl);
