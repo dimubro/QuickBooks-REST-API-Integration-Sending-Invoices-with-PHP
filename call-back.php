@@ -1,13 +1,13 @@
 <?php
-// This runs after user logs in and approves access
+
 if (isset($_GET['code'])) {
     $auth_code = $_GET['code'];
-    $realm_id = $_GET['realmId']; // Save this too
+    $realm_id = $_GET['realmId']; 
 
-    // Exchange code for tokens
+    
     $client_id = 'Client ID';
     $client_secret = 'Client Secret';
-    $redirect_uri = 'Redirect URL'; // inster your redirect your after go to call back;
+    $redirect_uri = 'Redirect URL'; // Insert your redirect URL
 
     $token_url = 'https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer';
 
@@ -42,7 +42,7 @@ if (isset($_GET['code'])) {
 
 
 
-        // save this refresh token to your database.
+        // Please save this refresh token in your database.
         echo "Access Token: $access_token<br>";
         echo "Refresh Token: $refresh_token<br>";
     } else {
