@@ -21,7 +21,14 @@
     Use the access token to send customer details to QuickBooks via the Customer Insert REST API.<br>
     <em>➤ You will receive a Customer ID in the response.</em>
   </li>
-
+  <li>
+    <strong>Get the Item Id</strong><br>
+    You want to insert an item into QuickBooks from the admin panel and need to get the item ID from QuickBooks.
+  </li>
+  <li>
+    <strong>Get the Tax Id</strong><br>
+    You want to get tax settings from QuickBooks, and you receive the tax settings ID from the QuickBooks admin.
+  </li>
   <li>
     <strong>Send Invoice Details</strong><br>
     After getting the Customer ID, you can use it to send invoice details to QuickBooks.
